@@ -1,0 +1,35 @@
+public class Main{
+    public static void main(String[]args){
+        bankDB db = new bankDB();
+        db.setName("Swetha","6382280320","2005");
+       
+        System.out.println(db.getName());
+        System.out.println(db.getpin());
+        System.out.println(db.getphoneno());
+    }
+}
+    class bankDB{
+        private String name;
+        private String phone_no;
+        private String pin;
+        
+        void setName(String name,String phone_no,String pin){
+            this.name=name;
+            this.phone_no=phone_no;
+            this.pin=pin;
+        }
+        
+        
+        String getName(){
+            return name;
+            
+        }
+        String getphoneno(){
+            return phone_no;
+        }
+        String getpin(){
+            return pin;
+        }
+        
+        }
+
