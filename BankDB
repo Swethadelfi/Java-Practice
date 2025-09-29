@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        bankDB db = new bankDB();
+        Scanner sc = new Scanner(System.in);
+        double amt = 5000;
+        System.out.println("Amount in bank:"+amt);
+        System.out.print("Enter amount to send:");
+        double send_amt =sc.nextDouble();
+        db.setpin("2005");
+        db.balance(amt,send_amt);
+    }
+}
+    class bankDB{
+ 
+        private double bal;
+        private String pin;
+        void setpin(String pin){
+            this.pin=pin;
+        }
+        String getpin(){
+            return pin;
+        }
+       public  void balance(double amt,double send){
+            if(amt> send){
+                System.out.println("PIN:"+getpin());
+                bal= amt-send;
+                System.out.println("Balance"+bal);
+            }
+            else if(amt< send){
+                System.out.println("balance insufficent");
+            }
+        }
+        
+        }
+
+
