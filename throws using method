@@ -1,0 +1,65 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+class ExceptionDemo {
+    static void divideNumbers() throws ArithmeticException {
+        int a = 10, b = 0;
+        System.out.println("Dividing " + a + " by " + b);
+        int result = a / b;  
+        System.out.println("Result: " + result);
+    }
+    static void accessArray() throws ArrayIndexOutOfBoundsException {
+        int[] arr = {1, 2, 3};
+        System.out.println("Accessing 5th element in array of size 3");
+        System.out.println(arr[4]);  
+    }
+
+    static void takeInput() throws InputMismatchException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();  
+        System.out.println("You entered: " + num);
+    }
+    static void nullPointer() throws NullPointerException{
+        String pg = null;
+        System.out.println(pg.length());
+    }
+
+    public static void main(String[] args) {
+        try {
+            divideNumbers();
+            
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Caught ArithmeticException: " + e);
+        }
+            
+            try{
+            accessArray();
+                
+            }
+            
+            catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Caught ArrayIndexOutOfBoundsException: " + e);
+        }
+            try{
+            takeInput();
+                
+            }
+            catch (InputMismatchException e) {
+            System.out.println("Caught InputMismatchException: Invalid input type.");
+        }
+            try{
+            nullPointer();
+                
+            }
+        
+       
+        
+        
+        catch(NullPointerException e){
+            System.out.println("Null pointer"+e);
+        }
+}
+    }
+
