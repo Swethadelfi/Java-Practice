@@ -1,0 +1,107 @@
+class Node{
+    int data;
+    Node next;
+    Node prev;
+    //  Node prev;
+    Node(int value){
+        this.data=value;
+        this.next=null;
+        //  this.prev=null;
+    }}
+class circularlinkedlist {
+    Node head;
+    Node tail;
+    //insert
+    public void insert(int value) {
+
+        Node newnode= new Node(value);
+        if(head==null){
+            head=newnode;
+            tail=newnode;
+            newnode.next=head;
+        }else{
+            tail.next=newnode;
+            tail=newnode;
+            tail.next=head;
+        }
+    }
+    //search
+    public void search(int value1) {
+        Node temp=head;
+        int position=1;
+        do {
+            if (temp.data == value1) {
+                System.out.println(value1 + "Found at the position" + position);
+                return;
+            }
+            temp = temp.next;
+            position++;
+        }while(temp!=head);
+        System.out.println("no value found");
+
+
+    }
+
+    //display
+    public void display() {
+      //  Node head;
+        // Node temp=head;
+        if(head==null){
+            System.out.println("Empty");
+            return;
+        }
+        Node temp=head;
+        do{
+            System.out.println(temp.data);
+            temp=temp.next;
+        }while(temp!=head);
+    }
+    //deleting
+     public void delete(int value2) {
+        //Node head;
+         if (head == null) {
+             System.out.println("There is no element");
+         }
+         if(head.data==value2){
+             head=head.next;
+             tail.next=head;
+             return;
+         }
+         Node temp=head;
+         while(temp.next!=null){
+             if(temp.next.data==value2){
+                 temp.next=temp.next.next;
+                 return;
+             }temp=temp.next;
+         }
+         if(tail.data==value2){
+             tail.prev=head;
+             return;
+         }
+
+        if(tail.data==value2){
+            tail=head;
+            return;
+
+        }
+             }
+}
+
+
+class Main {
+    public static void main(String[] args) {
+    circularlinkedlist ls=new circularlinkedlist();
+        ls.insert(4);
+        ls.insert(5);
+        ls.insert(6);
+        ls.display();
+        ls.search(6);
+        ls.display();
+        ls.delete(4);
+        System.out.println("After deleting!!");
+        ls.display();
+
+
+    }
+
+}
