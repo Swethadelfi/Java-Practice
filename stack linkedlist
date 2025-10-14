@@ -1,0 +1,53 @@
+class Node{
+    int data;
+    Node next;
+    Node top;
+    Node(int value){
+        this.data=value;
+        this.top=null;
+        this.next=null;
+    }}
+class stackLinkedList {
+    Node top = null;
+
+    public void enqueue(int value) {
+
+        if (top == null) {
+            System.out.println("There is no element!");
+            return;
+        }
+        Node newnode = new Node(value);
+        Node temp = top;
+        newnode.next=top;
+       // newnode=value;
+    }
+    public void dequeue(int value){
+        if(top==null){
+            System.out.println("There is no element!!");
+        }
+        else{
+            System.out.println("This element is popped"+top.next);
+        }
+    }
+    public void display(){
+        if(top==null){
+            System.out.println("There is no element!!");
+            return;
+        }
+        Node temp=top;
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+    }
+    public void peek(){
+        if(top==null){
+            System.out.println("There is no element");
+        }
+        else{
+            System.out.println("This is the top element "+top.data);
+
+        }
+    }
+
+}
