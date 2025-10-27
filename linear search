@@ -1,0 +1,20 @@
+class Main{
+    public static void main(String[]args){
+        int arr[]={10,14,20,30,40,50};
+        int key=14;
+        boolean b=false;
+        for(int i=0;i<=arr.length;i++){
+            if(arr[i]==key){
+                b=true;
+                continue;
+            }
+        }
+        if(!b){
+            System.out.println("Element not found");
+        }
+        else{
+            System.out.println("Element found");
+        }
+        
+    }
+}
